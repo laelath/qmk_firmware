@@ -17,6 +17,20 @@ enum custom_keycodes {
   RAISE,
 };
 
+enum tap_dance_codes {
+    TD_LSFT_LCTL = 0,
+    TD_RSFT_RCTL,
+    TD_LGUI_LALT,
+    TD_RGUI_RALT
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+    [TD_LSFT_LCTL] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_LCTL),
+    [TD_RSFT_RCTL] = ACTION_TAP_DANCE_DOUBLE(KC_RSFT, KC_RCTL),
+    [TD_LGUI_LALT] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_LALT),
+    [TD_RGUI_RALT] = ACTION_TAP_DANCE_DOUBLE(KC_RGUI, KC_RALT)
+};
+
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
 
@@ -25,9 +39,11 @@ enum custom_keycodes {
 #define KC_RST RESET
 
 #define KC_TG_A TG(_ARROW)
-#define KC_TO_Q TO(_QWERTY)
-#define KC_LSGU LSFT(KC_LGUI)
-#define KC_OSLA OSM(MOD_LALT)
+
+#define KC_TDLS TD(TD_LSFT_LCTL)
+#define KC_TDRS TD(TD_RSFT_RCTL)
+#define KC_TDLG TD(TD_LGUI_LALT)
+#define KC_TDRG TD(TD_RGUI_RALT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -39,9 +55,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      BSPC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,LSGU,     ESC , N  , M  ,COMM,DOT ,SLSH,RSFT,
+     TDLS, Z  , X  , C  , V  , B  ,DEL ,     ESC , N  , M  ,COMM,DOT ,SLSH,TDRS,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LCTL,LOWR,ENT ,         SPC ,RASE,LGUI
+                       TDLG,LOWR,ENT ,         SPC ,RASE,TDRG
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -65,9 +81,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,LBRC,LCBR,LPRN,    ,                   ,RPRN,RCBR,RBRC,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,    ,
+     MINS, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,EQL ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,LEFT,DOWN, UP ,RGHT,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,LEFT,DOWN, UP ,RGHT,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -75,15 +91,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,SLCK,PAUS,PSCR,
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,EQL ,UNDS,    ,                   ,MINS,PLUS,INS ,DEL ,    ,
+         ,    ,LBRC,LCBR,LPRN,    ,                   ,RPRN,RCBR,RBRC,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,    ,
+     UNDS,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,PLUS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,         ,    ,HOME,PGDN,PGUP,END ,    ,
+         ,    ,    ,SLCK,PAUS,PSCR,INS ,         ,HOME,PGDN,PGUP,END ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       OSLA,    ,    ,             ,    ,
+                           ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
   ),
 
