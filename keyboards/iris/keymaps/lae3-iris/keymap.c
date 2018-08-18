@@ -47,17 +47,22 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define KC_TDLG TD(TD_LGUI_LALT)
 #define KC_TDRG TD(TD_RGUI_RALT)
 
+#define KC_CTLZ LCTL(KC_Z)
+#define KC_CTLX LCTL(KC_X)
+#define KC_CTLC LCTL(KC_C)
+#define KC_CTLV LCTL(KC_V)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_QWERTY] = LAYOUT_kc(
     //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-       GRV , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,CAPS,
+       ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,CAPS,
     //|----+----+----+----+----+----|              |----+----+----+----+----+----|
        TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSLS,
     //|----+----+----+----+----+----|              |----+----+----+----+----+----|
        BSPC, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
     //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-       TDLS, Z  , X  , C  , V  , B  ,DEL ,     ESC , N  , M  ,COMM,DOT ,SLSH,TDRS,
+       TDLS, Z  , X  , C  , V  , B  ,LBRC,     RBRC, N  , M  ,COMM,DOT ,SLSH,TDRS,
     //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                          TDLG,LOWR,ENT ,         SPC ,RASE,TDRG
     //                  `----+----+----'        `----+----+----'
@@ -93,13 +98,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LOWER] = LAYOUT_kc(
     //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-           ,    ,    ,SLCK,PAUS,PSCR,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
+       F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
     //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-           ,    ,    ,    ,    ,    ,               RCBR,AMPR,ASTR,HOME,END ,PGUP,
+           ,TILD,GRV ,SLCK,PAUS,PSCR,               EQL ,MINS,PLUS,UNDS,INS ,    ,
     //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-           ,    ,    ,    ,    ,    ,               RBRC,CIRC,MINS,PLUS, UP ,PGDN,
+           ,    ,    ,    ,    ,    ,               LEFT,DOWN, UP ,RGHT,DEL ,    ,
     //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-           ,    ,    ,    ,    ,    ,    ,         ,RPRN,EQL ,UNDS,LEFT,DOWN,RGHT,
+           ,    ,    ,    ,    ,    ,    ,         ,HOME,PGDN,PGUP,END ,    ,    ,
     //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                              ,    ,    ,             ,    ,
     //                  `----+----+----'        `----+----+----'
@@ -107,13 +112,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_RAISE] = LAYOUT_kc(
     //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-       F12 , F1 , F2 , F3 , F4 , F5 ,               PSLS, P7 , P8 , P9 ,NLCK,    ,
+           ,NLCK, P7 , P8 , P9 ,PSLS,                   ,    ,    ,    ,    ,    ,
     //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-           ,    ,    ,EXLM, AT ,LCBR,               PAST, P4 , P5 , P6 ,PENT,    ,
+           ,PENT, P4 , P5 , P6 ,PAST,                   ,    ,    ,    ,    ,    ,
     //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-           ,    ,    ,HASH,DLR ,LBRC,               PMNS, P1 , P2 , P3 ,    ,    ,
+           ,    , P1 , P2 , P3 ,PMNS,                   ,    ,    ,    ,    ,    ,
     //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-           ,    ,    ,    ,PERC,LPRN,INS ,         ,PPLS,PDOT, P0 ,    ,    ,    ,
+           ,    ,    , P0 ,PDOT,PPLS,    ,         ,    ,    ,    ,    ,    ,    ,
     //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                              ,    ,    ,             ,    ,
     //                  `----+----+----'        `----+----+----'
