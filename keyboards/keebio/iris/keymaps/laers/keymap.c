@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSFT, Z  , X  , C  , V  , B  , GRV,     ARRW, N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LCTL,LGUI, SPC,          ENT,HYPE,RALT
+                       LCTL,LGUI, SPC,          ENT,HYPE,LALT
   //                  `----+----+----'        `+---+----+----'
   ),
   [_ARROW] = LAYOUT_kc( //
