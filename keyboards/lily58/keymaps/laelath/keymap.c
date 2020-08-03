@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                    |  F7  |  F8  |  F9  | F10  | F11  | F12  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |CpsLck|      |PrtSc |  Del |  Ins |RESET |                    |      |   -  |   +  |   =  |   \  |   |  |
+ * |CpsLck|      |PrtSc |  Del |  Ins |      |                    |      |   -  |   +  |   =  |   \  |   |  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      | Left | Down |  Up  |Right |      |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      | Home | PgDn | PgUp |  End |      |
+ * |      |      |      |      |      |      |-------.    ,-------| Left | Down |  Up  |Right |      |      |
+ * |------+------+------+------+------+------| RESET |    |    ]  |------+------+------+------+------+------|
+ * |      |      |      |      |      |      |-------|    |-------| Home | PgDn | PgUp |  End |      |      |
  * `-----------------------------------------/      /      \      \-----------------------------------------'
  *                   | LAlt | LGUI |  FN  | /Space /        \Enter \ |BackSP| RGUI | RAlt |
  *                   |      |      |      |/      /          \      \|      |      |      |
@@ -60,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_FN] = LAYOUT( \
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  \
-  KC_CAPS, XXXXXXX, KC_PSCR, KC_DEL,  KC_INS,  RESET,                     XXXXXXX, KC_MINS, KC_PLUS, KC_EQL,  KC_BSLS, KC_PIPE, \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, \
+  KC_CAPS, XXXXXXX, KC_PSCR, KC_DEL,  KC_INS,  XXXXXXX,                   XXXXXXX, KC_MINS, KC_PLUS, KC_EQL,  KC_BSLS, KC_PIPE, \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX, \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   EEP_RST, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, _______, \
                              _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
